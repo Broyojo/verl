@@ -94,7 +94,7 @@ class SFTDataset(Dataset):
             except Exception:
                 print(f'self.prompts={self.prompts}')
                 raise
-        self.prompts = self.prompts.tolist()
+        self.prompts = self.prompts.values.squeeze().tolist()
         self.responses = self.dataframe[self.response_key]
         for key in self.response_dict_keys:
             try:
@@ -102,8 +102,8 @@ class SFTDataset(Dataset):
             except Exception:
                 print(f'self.responses={self.responses}')
                 raise
-        self.responses = self.responses.tolist()
-
+        self.responses = self.responses.values.squeeze().tolist()
+        
     def __len__(self):
         return len(self.prompts)
 
@@ -117,6 +117,7 @@ class SFTDataset(Dataset):
         prompt_chat = [{'role': 'user', 'content': prompt}]
 
         # string
+        # print(prompt_chat)
         prompt_chat_str = tokenizer.apply_chat_template(prompt_chat, add_generation_prompt=True, tokenize=False)
         response_chat_str = response + tokenizer.eos_token
 
