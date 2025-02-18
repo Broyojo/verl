@@ -2,10 +2,7 @@
 # build-system
 # -------------------------------
 [build-system]
-requires = [
-    "setuptools>=61.0",
-    "wheel"
-]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 # -------------------------------
@@ -19,13 +16,13 @@ name = "verl"
 dynamic = ["version"]
 
 description = "verl: Volcano Engine Reinforcement Learning for LLM"
-license = {file = "LICENSE"}  # or "Apache-2.0", if you prefer an SPDX identifier
-readme = {file = "README.md", content-type = "text/markdown"}
+license = { file = "LICENSE" }                                      # or "Apache-2.0", if you prefer an SPDX identifier
+readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.8"
 
 authors = [
-  { name = "Bytedance - Seed - MLSys", email = "zhangchi.usc1992@bytedance.com" },
-  { name = "Bytedance - Seed - MLSys", email = "gmsheng@connect.hku.hk" },
+    { name = "Bytedance - Seed - MLSys", email = "zhangchi.usc1992@bytedance.com" },
+    { name = "Bytedance - Seed - MLSys", email = "gmsheng@connect.hku.hk" },
 ]
 
 # Dependencies corresponding to install_requires in setup.py
@@ -44,15 +41,13 @@ dependencies = [
     "ray>=2.10",
     "tensordict<0.6",
     "transformers",
-    "vllm<=0.6.3.post1",
+    "vllm==0.6.3",
     'wandb',
 ]
 
 # Optional dependencies (extras_require in setup.py)
 [project.optional-dependencies]
-test = [
-  "pytest", "yapf", "py-spy",
-]
+test = ["pytest", "yapf", "py-spy"]
 prime = ["pyext"]
 gpu = ["liger-kernel", "flash-attn"]
 
@@ -70,7 +65,7 @@ include-package-data = true
 
 # We read the version from a file in 'verl/version/version'
 [tool.setuptools.dynamic]
-version = {file = "verl/version/version"}
+version = { file = "verl/version/version" }
 
 # If you need to mimic `package_dir={'': '.'}`:
 [tool.setuptools.package-dir]
@@ -79,7 +74,4 @@ version = {file = "verl/version/version"}
 # If you need to include specific non-Python data (like YAML files or version file):
 # This is the rough equivalent of package_data={'': ['version/*'], 'verl': ['trainer/config/*.yaml']}
 [tool.setuptools.package-data]
-verl = [
-  "version/*",
-  "trainer/config/*.yaml"
-]
+verl = ["version/*", "trainer/config/*.yaml"]
