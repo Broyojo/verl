@@ -47,6 +47,7 @@ dependencies = [
     "transformers",
     "vllm<=0.6.3",
     'wandb',
+    "gymnasium"
 ]
 
 # Optional dependencies (extras_require in setup.py)
