@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -euo pipefail
 set -x
 
@@ -48,4 +50,4 @@ python3 -m verl.trainer.main_ppo \
     trainer.total_epochs=1 \
     trainer.test_freq=1 \
     trainer.save_freq=0 \
-    $@
+    "$@"
